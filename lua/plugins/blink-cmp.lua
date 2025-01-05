@@ -18,14 +18,6 @@ return {
         "path",
         "snippets",
         "buffer",
-        "emoji",
-      },
-      providers = {
-        emoji = {
-          module = "blink-emoji",
-          name = "Emoji",
-          score_offset = 15,
-        },
       },
     },
     completion = {
