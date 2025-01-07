@@ -8,16 +8,24 @@ return {
   opts = {
     keymap = {
       preset = "super-tab",
+      ["<C-j>"] = { "select_next", "fallback" },
+      ["<C-k>"] = { "select_prev", "fallback" },
     },
     signature = {
       enabled = true,
     },
     sources = {
-      default = {
-        "lsp",
-        "path",
-        "snippets",
-        "buffer",
+      providers = {
+        lsp = {
+          async = true,
+          score_offset = 10,
+        },
+        path = {
+          score_offset = 9,
+        },
+        buffer = {
+          score_offset = 8,
+        },
       },
     },
     completion = {
@@ -28,7 +36,7 @@ return {
         enabled = true,
       },
       menu = {
-        border = "solid",
+        border = "single",
         scrollbar = false,
         draw = {
           padding = 2,
@@ -49,8 +57,5 @@ return {
     appearance = {
       nerd_font_variant = "mono",
     },
-  },
-  opts_extend = {
-    "sources.default",
   },
 }
