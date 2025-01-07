@@ -3,10 +3,6 @@ return {
     "LazyVim/LazyVim",
     opts = {
       colorscheme = "catppuccin",
-      intergrations = {
-        blink_cmp = true,
-        mason = true,
-      },
     },
   },
   {
@@ -21,6 +17,8 @@ return {
       cmp = true,
       gitsign = true,
       nvimtree = true,
+      mason = true,
+      blink_cmp = true,
       treesitter = true,
     },
   },
