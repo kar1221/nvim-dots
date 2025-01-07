@@ -45,24 +45,46 @@ return {
     ---@type Terminal[]
     local terminals = {}
 
+    local current_terminal = 0
+
     ---@param direction string
     function _NEW_TERMINAL(direction)
       local term = Terminal:new({ direction = direction })
       term:toggle()
       table.insert(terminals, term)
+      current_terminal = #terminals
     end
 
     function _CLOSE_TERMINAL()
       if #terminals <= 0 then
-        return nil
+        return
       end
 
       local top_term = terminals[#terminals]
       top_term:close()
       table.remove(terminals, #terminals)
+      current_terminal = math.min(0, #terminals)
     end
 
-    -- Floating terminal
+    function _SWITCH_TERMINAL()
+      if #terminals <= 0 then
+        return
+      end
+
+      local curr_term = terminals[current_terminal]
+
+      current_terminal = (current_terminal % #terminals) + 1
+      local next_terminal = terminals[current_terminal]
+
+      curr_term:close()
+      next_terminal:toggle()
+    end
+
+    function _CLOSE_ALL_TERMINAL()
+      while #terminals > 0 do
+        _CLOSE_TERMINAL()
+      end
+    end
   end,
   keys = {
     {
@@ -92,6 +114,20 @@ return {
         _CLOSE_TERMINAL()
       end,
       desc = "Close Top Most Terminal",
+    },
+    {
+      "<leader>ta",
+      function()
+        _CLOSE_ALL_TERMINAL()
+      end,
+      desc = "Close All Terminal",
+    },
+    {
+      "<leader>tw",
+      function()
+        _SWITCH_TERMINAL()
+      end,
+      desc = "Switch Terminal",
     },
   },
 }
