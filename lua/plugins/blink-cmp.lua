@@ -17,7 +17,6 @@ return {
     sources = {
       providers = {
         lsp = {
-          async = true,
           score_offset = 10,
         },
         path = {
@@ -36,19 +35,33 @@ return {
         enabled = true,
       },
       menu = {
-        border = "single",
+        border = "padded",
         scrollbar = false,
         draw = {
+          components = {
+            bar = {
+              text = function()
+                return "󱋱"
+              end,
+              highlight = function(ctx)
+                return (require("blink.cmp.completion.windows.render.tailwind").get_hl(ctx) or "BlinkCmpKind")
+                  .. ctx.kind
+              end,
+            },
+          },
           padding = 2,
           columns = {
+            { "kind_icon" },
             {
+              "bar",
               "label",
               "label_description",
               gap = 1,
             },
             {
-              "kind_icon",
+              "bar",
               "kind",
+              gap = 1,
             },
           },
         },
