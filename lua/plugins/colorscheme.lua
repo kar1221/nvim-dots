@@ -10,7 +10,6 @@ return {
     name = "catppuccin",
     lazy = false,
     opts = {
-      transparent_background = true,
       flavour = "mocha",
     },
     intergrations = {
@@ -20,6 +19,18 @@ return {
       mason = true,
       blink_cmp = true,
       treesitter = true,
+    },
+  },
+  {
+    "bettervim/yugen.nvim",
+  },
+  {
+    "rebelot/kanagawa.nvim",
+  },
+  {
+    "navarasu/onedark.nvim",
+    opts = {
+      style = "deep",
     },
   },
 }
