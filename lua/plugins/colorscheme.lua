@@ -2,7 +2,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "catppuccin",
+      colorscheme = "catppuccin-mocha",
     },
   },
   {
@@ -11,14 +11,15 @@ return {
     lazy = false,
     opts = {
       flavour = "mocha",
-    },
-    intergrations = {
-      cmp = true,
-      gitsign = true,
-      nvimtree = true,
-      mason = true,
-      blink_cmp = true,
-      treesitter = true,
+      no_italic = true,
+      intergrations = {
+        cmp = true,
+        gitsign = true,
+        nvimtree = true,
+        mason = true,
+        blink_cmp = true,
+        treesitter = true,
+      },
     },
   },
   {
@@ -32,5 +33,9 @@ return {
     opts = {
       style = "deep",
     },
+  },
+  {
+    "projekt0n/github-nvim-theme",
+    name = "github-theme",
   },
 }

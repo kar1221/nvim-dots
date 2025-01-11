@@ -31,44 +31,37 @@ return {
       accept = {
         create_undo_point = true,
       },
-      ghost_text = {
-        enabled = true,
-      },
       menu = {
-        border = "padded",
+        border = "none",
         scrollbar = false,
+        winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:MasonHeader,Search:None",
         draw = {
+          gap = 2,
           components = {
-            bar = {
-              text = function()
-                return "󱋱"
+            kind_icon = {
+              ellipsis = false,
+              text = function(ctx)
+                local kind_icon, _, _ = require("mini.icons").get("lsp", ctx.kind)
+                return kind_icon
               end,
               highlight = function(ctx)
-                return (require("blink.cmp.completion.windows.render.tailwind").get_hl(ctx) or "BlinkCmpKind")
-                  .. ctx.kind
+                -- return (require("blink.cmp.completion.windows.render.tailwind").get_hl(ctx) or "BlinkCmpKind")
+                --   .. ctx.kind
+                local _, hl, _ = require("mini.icons").get("lsp", ctx.kind)
+                return hl
               end,
             },
           },
-          padding = 2,
           columns = {
-            { "kind_icon" },
             {
-              "bar",
-              "label",
-              "label_description",
-              gap = 1,
+              "kind_icon",
             },
             {
-              "bar",
-              "kind",
-              gap = 1,
+              "label",
             },
           },
         },
       },
-    },
-    appearance = {
-      nerd_font_variant = "mono",
     },
   },
 }
