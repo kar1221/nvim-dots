@@ -2,7 +2,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "catppuccin-mocha",
+      colorscheme = "catppuccin",
     },
   },
   {
@@ -37,5 +37,8 @@ return {
   {
     "projekt0n/github-nvim-theme",
     name = "github-theme",
+  },
+  {
+    "kepano/flexoki-neovim",
   },
 }
