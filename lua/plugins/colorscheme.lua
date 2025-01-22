@@ -2,8 +2,15 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "catppuccin",
+      colorscheme = "oxocarbon",
     },
+  },
+  {
+    "nyoom-engineering/oxocarbon.nvim",
+    -- Add in any other configuration;
+    --   event = foo,
+    --   config = bar
+    --   end,
   },
   {
     "catppuccin/nvim",
@@ -21,6 +28,10 @@ return {
         treesitter = true,
       },
     },
+  },
+  {
+    "rose-pine/neovim",
+    name = "rose-pine",
   },
   {
     "bettervim/yugen.nvim",
