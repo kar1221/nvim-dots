@@ -2,7 +2,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "oxocarbon",
+      colorscheme = "rose-pine",
     },
   },
   {
@@ -32,6 +32,11 @@ return {
   {
     "rose-pine/neovim",
     name = "rose-pine",
+    opts = {
+      styles = {
+        italic = false,
+      },
+    },
   },
   {
     "bettervim/yugen.nvim",

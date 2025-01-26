@@ -12,11 +12,17 @@ return {
         },
       },
       tailwindcss = {
-        experimental = {
-          classRegex = {
-            "(?:class: ?)(?:'|\"|`)([^\"'`]*)(?:'|\"|`)",
-            "(?:active-class: ?)(?:'|\"|`)([^\"'`]*)(?:'|\"|`)",
-            "(?:inactive-class: ?)(?:'|\"|`)([^\"'`]*)(?:'|\"|`)",
+        settings = {
+          tailwindCSS = {
+            classAttributes = {
+              "class",
+              "className",
+              "class:list",
+              "classList",
+              "ngClass",
+              "active-class",
+              "inactive-class",
+            },
           },
         },
       },
