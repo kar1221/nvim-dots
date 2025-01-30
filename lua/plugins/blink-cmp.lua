@@ -34,8 +34,10 @@ return {
       menu = {
         border = "none",
         scrollbar = false,
-        winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:MasonHeader,Search:None",
         draw = {
+          treesitter = {
+            "lsp",
+          },
           gap = 2,
           components = {
             kind_icon = {
@@ -45,10 +47,10 @@ return {
                 return kind_icon
               end,
               highlight = function(ctx)
-                -- return (require("blink.cmp.completion.windows.render.tailwind").get_hl(ctx) or "BlinkCmpKind")
-                --   .. ctx.kind
-                local _, hl, _ = require("mini.icons").get("lsp", ctx.kind)
-                return hl
+                return (require("blink.cmp.completion.windows.render.tailwind").get_hl(ctx) or "BlinkCmpKind")
+                  .. ctx.kind
+                -- local _, hl, _ = require("mini.icons").get("lsp", ctx.kind)
+                -- return hl
               end,
             },
           },
