@@ -1,5 +1,3 @@
-local noice = require("noice")
-
 local function is_deno_project()
   local bufnr = vim.api.nvim_get_current_buf()
   local clients = vim.lsp.get_clients({ bufnr = bufnr })
@@ -36,7 +34,6 @@ return {
       typescript = function()
         return get_fmt()
       end,
-      -- Optional: Add these if you work with React files
       javascriptreact = function()
         return get_fmt()
       end,
