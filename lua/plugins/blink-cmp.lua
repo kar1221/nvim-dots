@@ -32,7 +32,7 @@ return {
         create_undo_point = true,
       },
       menu = {
-        border = "none",
+        border = "solid",
         scrollbar = false,
         draw = {
           treesitter = {
