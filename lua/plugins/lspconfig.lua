@@ -11,17 +11,31 @@ return {
           },
         },
       },
+      -- tailwindcss = {
+      --   settings = {
+      --     tailwindCSS = {
+      --       classAttributes = {
+      --         "class",
+      --         "className",
+      --         "class:list",
+      --         "classList",
+      --         "ngClass",
+      --         "active-class",
+      --         "inactive-class",
+      --       },
+      --     },
+      --   },
+      -- },
       tailwindcss = {
         settings = {
           tailwindCSS = {
-            classAttributes = {
-              "class",
-              "className",
-              "class:list",
-              "classList",
-              "ngClass",
-              "active-class",
-              "inactive-class",
+            experimental = {
+              classRegex = {
+                { "cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]" },
+                { "cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)" },
+                { "cn\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]" },
+                { "([a-zA-Z0-9\\-:]+)" },
+              },
             },
           },
         },

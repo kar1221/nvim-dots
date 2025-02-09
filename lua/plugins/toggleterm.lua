@@ -1,5 +1,6 @@
 return {
   "akinsho/toggleterm.nvim",
+  enabled = false, -- Temporary Disable it cuz it's buggy
   version = "*",
   lazy = false,
   config = function()

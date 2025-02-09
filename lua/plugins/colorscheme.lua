@@ -13,6 +13,13 @@ return {
     --   end,
   },
   {
+    "Everblush/nvim",
+    name = "everblush",
+  },
+  {
+    "ellisonleao/gruvbox.nvim",
+  },
+  {
     "catppuccin/nvim",
     name = "catppuccin",
     lazy = false,
