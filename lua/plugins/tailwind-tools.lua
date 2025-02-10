@@ -16,28 +16,6 @@ return {
     },
   },
   opts = {
-    server = {
-      override = false,
-      settings = {
-        experimental = {
-          classRegex = {
-            { "cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]" },
-            { "cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)" },
-            { "cn\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]" },
-            { "([a-zA-Z0-9\\-:]+)" },
-          },
-        },
-        classAttributes = {
-          "class",
-          "className",
-          "class:list",
-          "classList",
-          "ngClass",
-          "active-class",
-          "inactive-class",
-        },
-      },
-    },
     conceal = {
       enabled = true,
     },
