@@ -5,7 +5,7 @@ return {
     keys = {
       { "<leader>cp", "<cmd>CompilerOpen<CR>", desc = "Open compiler menu" },
       { "<leader>cP", "<cmd>CompilerToggleResults<CR>", desc = "Toggle Compiler Result" },
-      { "<leader>crp", "<cmd>CompilerRedo<CR>", desc = "Recompile" },
+      { "<leader>cR", "<cmd>CompilerRedo<CR>", desc = "Recompile" },
     },
     dependencies = { "stevearc/overseer.nvim", "nvim-telescope/telescope.nvim" },
     opts = {},

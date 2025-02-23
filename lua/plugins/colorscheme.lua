@@ -2,7 +2,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "catppuccin-latte",
+      colorscheme = "rose-pine",
     },
   },
   {
@@ -63,5 +63,13 @@ return {
   },
   {
     "kepano/flexoki-neovim",
+  },
+  {
+    "shaunsingh/nord.nvim",
+    name = "Nord-shaun",
+  },
+  {
+    "gbprod/nord.nvim",
+    name = "Nord-gbp",
   },
 }

@@ -40,6 +40,11 @@ return {
       typescriptreact = function()
         return get_fmt()
       end,
+      cpp = {
+        "clang-format",
+        "fallback",
+        stop_after_first = true,
+      },
     },
   },
 }
