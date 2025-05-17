@@ -2,7 +2,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "rose-pine",
+      colorscheme = "tokyonight-storm",
     },
   },
   {
@@ -15,6 +15,9 @@ return {
   {
     "Everblush/nvim",
     name = "everblush",
+  },
+  {
+    "kdheepak/monochrome.nvim",
   },
   {
     "ellisonleao/gruvbox.nvim",
@@ -71,5 +74,8 @@ return {
   {
     "gbprod/nord.nvim",
     name = "Nord-gbp",
+  },
+  {
+    "psliwka/termcolors.nvim",
   },
 }
