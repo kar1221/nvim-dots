@@ -2,7 +2,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "tokyonight-storm",
+      colorscheme = "tokyonight",
     },
   },
   {
@@ -66,6 +66,17 @@ return {
   },
   {
     "kepano/flexoki-neovim",
+  },
+  {
+    "folke/tokyonight.nvim",
+    opts = {
+      defaults = {
+        styles = {
+          comments = { italic = false },
+          keywords = { italic = false },
+        },
+      },
+    },
   },
   {
     "shaunsingh/nord.nvim",
