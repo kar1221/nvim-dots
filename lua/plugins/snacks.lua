@@ -1,9 +1,19 @@
 return {
   "folke/snacks.nvim",
-  ---@type snacks.Config
   opts = {
+    -- Indent
     indent = {
-      only_scope = true,
+      indent = {
+        only_scope = true,
+      },
+      chunk = {
+        enabled = true,
+        char = {
+          arrow = "─",
+          corner_top = "╭",
+          corner_bottom = "╰",
+        },
+      },
     },
   },
 }

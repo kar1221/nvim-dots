@@ -10,4 +10,12 @@ return {
     "Everblush/nvim",
     name = "everblush",
   },
+
+  {
+    "rose-pine/neovim",
+  },
+
+  {
+    "catppuccin/nvim",
+  },
 }

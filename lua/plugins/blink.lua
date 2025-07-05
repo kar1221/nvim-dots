@@ -6,28 +6,45 @@ return {
   ---@type blink.cmp.Config
   opts = {
     completion = {
+      ghost_text = {
+        enabled = false,
+      },
       menu = {
         draw = {
-          padding = 1,
-          columns = {
-            { "label" },
-            { "kind_icon" },
-            { "kind" },
-          },
           components = {
             kind_icon = {
               text = function(ctx)
-                local icons = require("nvchad.icons.lspkind")
-                local icon = (icons[ctx.kind] or "󰈚")
+                local icon = ctx.kind_icon
+                if vim.tbl_contains({ "Path" }, ctx.source_name) then
+                  local dev_icon, _ = require("nvim-web-devicons").get_icon(ctx.label)
+                  if dev_icon then
+                    icon = dev_icon
+                  end
+                else
+                  icon = require("lspkind").symbolic(ctx.kind, {
+                    mode = "symbol",
+                  })
+                end
 
-                return icon
+                return icon .. ctx.icon_gap
+              end,
+              highlight = function(ctx)
+                local _, hl, _ = require("mini.icons").get("lsp", ctx.kind)
+                return hl
               end,
             },
             kind = {
               highlight = function(ctx)
-                return ctx.kind
+                local _, hl, _ = require("mini.icons").get("lsp", ctx.kind)
+                return hl
               end,
             },
+          },
+          padding = 2,
+          columns = {
+            { "label" },
+            { "kind_icon" },
+            { "kind" },
           },
         },
         scrollbar = false,
@@ -59,7 +76,12 @@ return {
     },
     fuzzy = {
       sorts = {
-        "exact",
+        function(a, b)
+          if (a.client_name == nil or b.client_name == nil) or (a.client_name == b.client_name) then
+            return
+          end
+          return b.client_name == "emmet_ls"
+        end,
         -- defaults
         "score",
         "sort_text",
