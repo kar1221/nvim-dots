@@ -53,8 +53,6 @@ return {
 
     keymap = {
       preset = "super-tab",
-      ["<C-j>"] = { "select_next", "fallback" },
-      ["<C-k>"] = { "select_prev", "fallback" },
       ["<Tab>"] = {
         require("blink.cmp.keymap.presets").get("super-tab")["<Tab>"][1],
         require("lazyvim.util.cmp").map({ "snippet_forward", "ai_accept" }),
@@ -65,12 +63,17 @@ return {
       providers = {
         lsp = {
           score_offset = 10,
+          timeout_ms = 5000,
+          fallbacks = {},
         },
         path = {
           score_offset = 9,
         },
         buffer = {
           score_offset = 8,
+        },
+        snippets = {
+          score_offset = 7,
         },
       },
     },
