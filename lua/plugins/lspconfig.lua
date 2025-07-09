@@ -1,3 +1,5 @@
+local find_pkg = require("util.find_pkg").find_pkg_dir
+
 local vue_language_server_path = vim.fn.stdpath("data")
   .. "/mason/packages/vue-language-server/node_modules/@vue/language-server"
 
@@ -7,6 +9,19 @@ local vue_plugin = {
   languages = { "vue" },
   configNamespace = "typescript",
   enableForWorkspaceTypeScriptVersions = true,
+}
+
+local customizations = {
+  { rule = "style/*", severity = "off", fixable = true },
+  { rule = "format/*", severity = "off", fixable = true },
+  { rule = "*-indent", severity = "off", fixable = true },
+  { rule = "*-spacing", severity = "off", fixable = true },
+  { rule = "*-spaces", severity = "off", fixable = true },
+  { rule = "*-order", severity = "off", fixable = true },
+  { rule = "*-dangle", severity = "off", fixable = true },
+  { rule = "*-newline", severity = "off", fixable = true },
+  { rule = "*quotes", severity = "off", fixable = true },
+  { rule = "*semi", severity = "off", fixable = true },
 }
 
 local servers = {
@@ -24,31 +39,7 @@ local servers = {
   -- TailwindCSS
   tailwindcss = {
     root_dir = function(fname)
-      local package_json_path = vim.fs.dirname(vim.fs.find("package.json", { path = fname, upward = true })[1])
-      if not package_json_path then
-        return nil
-      end
-
-      local file = io.open(package_json_path .. "/package.json", "r")
-      if not file then
-        return nil
-      end
-
-      local found = false
-      for line in file:lines() do
-        if line:match('"tailwindcss"%s*:') or line:match([["@nuxt/ui"%s*:]]) then
-          found = true
-          break
-        end
-      end
-
-      file:close()
-
-      if found then
-        return package_json_path
-      else
-        return nil
-      end
+      return find_pkg(fname, { "tailwindcss", "@nuxt/ui" })
     end,
     settings = {
       tailwindCSS = {
@@ -110,6 +101,61 @@ local servers = {
         },
       },
     },
+  },
+
+  svelte = {
+    on_attach = function(client, _)
+      if client.name == "svelte" then
+        vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+          pattern = { "*.js", "*.ts" },
+          callback = function(ctx)
+            client:notify("$/onDidChangeTsOrJsFile", {
+              uri = ctx.match,
+            })
+          end,
+        })
+      end
+    end,
+  },
+
+  eslint = {
+    filetypes = {
+      "javascript",
+      "javascriptreact",
+      "javascript.jsx",
+      "typescript",
+      "typescriptreact",
+      "typescript.tsx",
+      "vue",
+      "html",
+      "markdown",
+      "json",
+      "jsonc",
+      "yaml",
+      "toml",
+      "xml",
+      "gql",
+      "graphql",
+      "astro",
+      "svelte",
+      "css",
+      "less",
+      "scss",
+      "pcss",
+      "postcss",
+    },
+    on_attach = function(_, bufnr)
+      if find_pkg(vim.fn.getcwd(), "@antfu/eslint-config") then
+        vim.api.nvim_create_autocmd("BufWritePre", {
+          buffer = bufnr,
+          command = "EslintFixAll",
+        })
+      end
+    end,
+    -- settings = {
+    --   -- Silent the stylistic rules in you IDE, but still auto fix them
+    --   rulesCustomizations = customizations,
+    -- },
   },
 }
 
