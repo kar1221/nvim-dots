@@ -3,3 +3,4 @@
 -- Add any additional options here
 
 vim.o.cursorline = false
+vim.g.autoformat = false

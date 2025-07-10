@@ -13,7 +13,7 @@ local options = {
   ui = {
     cmp = {
       icons_left = false, -- only for non-atom styles!
-      style = "default", -- default/flat_light/flat_dark/atom/atom_colored
+      style = "default",  -- default/flat_light/flat_dark/atom/atom_colored
       abbr_maxwidth = 60,
       -- for tailwind, css lsp etc
       format_colors = { lsp = true, icon = "󱓻" },
@@ -23,12 +23,10 @@ local options = {
 
     statusline = {
       enabled = true,
-      theme = "default", -- default/vscode/vscode_colored/minimal
+      theme = "minimal", -- default/vscode/vscode_colored/minimal
       -- default/round/block/arrow separators work only for default statusline theme
       -- round and block will work for minimal theme only
-      separator_style = "default",
-      order = nil,
-      modules = nil,
+      separator_style = "round",
     },
 
     -- lazyload it when there are 1+ buffers
@@ -36,8 +34,6 @@ local options = {
       enabled = true,
       lazyload = true,
       order = { "treeOffset", "buffers", "tabs", "btns" },
-      modules = nil,
-      bufwidth = 21,
     },
   },
 
@@ -98,7 +94,7 @@ local options = {
   lsp = { signature = true },
 
   cheatsheet = {
-    theme = "grid", -- simple/grid
+    theme = "grid",                                                     -- simple/grid
     excluded_groups = { "terminal (t)", "autopairs", "Nvim", "Opens" }, -- can add group name or with mode
   },
 

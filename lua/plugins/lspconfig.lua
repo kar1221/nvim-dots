@@ -145,12 +145,12 @@ local servers = {
       "postcss",
     },
     on_attach = function(_, bufnr)
-      if find_pkg(vim.fn.getcwd(), "@antfu/eslint-config") then
-        vim.api.nvim_create_autocmd("BufWritePre", {
-          buffer = bufnr,
-          command = "EslintFixAll",
-        })
-      end
+      -- if find_pkg(vim.fn.getcwd(), "@antfu/eslint-config") then
+      --   vim.api.nvim_create_autocmd("BufWritePre", {
+      --     buffer = bufnr,
+      --     command = "EslintFixAll",
+      --   })
+      -- end
     end,
     -- settings = {
     --   -- Silent the stylistic rules in you IDE, but still auto fix them

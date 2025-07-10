@@ -1,5 +1,9 @@
 -- bootstrap lazy.nvim, LazyVim and your plugins
 
+if vim.g.vscode then
+  return {}
+end
+
 vim.g.base46_cache = vim.fn.stdpath("data") .. "/base46_cache/"
 
 require("config.lazy")
