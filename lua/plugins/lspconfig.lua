@@ -25,6 +25,13 @@ local customizations = {
 }
 
 local servers = {
+  html = {
+    filetypes = {
+      "html",
+      "ejs",
+    },
+  },
+
   -- CSS
   cssls = {
     settings = {
