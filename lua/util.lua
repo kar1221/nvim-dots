@@ -46,4 +46,19 @@ function M.find_pkg_dir(start_path, pkg_names)
   return nil
 end
 
+function M.insert_unique(dst, src)
+  dst = dst or {}
+  local seen = {}
+  for _, v in ipairs(dst) do
+    seen[v] = true
+  end
+  for _, v in ipairs(src) do
+    if not seen[v] then
+      table.insert(dst, v)
+      seen[v] = true
+    end
+  end
+  return dst
+end
+
 return M

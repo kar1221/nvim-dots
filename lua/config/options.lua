@@ -4,3 +4,5 @@
 
 vim.o.cursorline = false
 vim.g.autoformat = false
+
+vim.g.lazyvim_blink_main = true

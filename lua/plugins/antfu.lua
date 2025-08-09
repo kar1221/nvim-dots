@@ -1,4 +1,4 @@
-local find_pkg = require("util.find_pkg").find_pkg_dir
+local find_pkg = require("util").find_pkg_dir
 
 if true then
   return {}

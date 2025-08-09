@@ -2,7 +2,7 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
-local find_pkg = require("util.find_pkg").find_pkg_dir
+local find_pkg = require("util").find_pkg_dir
 local LazyVim = require("lazyvim.util")
 
 vim.keymap.set("n", "<leader>cf", function()
