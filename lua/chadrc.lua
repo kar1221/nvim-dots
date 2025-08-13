@@ -1,6 +1,6 @@
 local options = {
   base46 = {
-    theme = "oxocarbon", -- default theme
+    theme = "nord", -- default theme
   },
 
   ui = {

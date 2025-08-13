@@ -44,6 +44,7 @@ require("lazy").setup({
   }, -- automatically check for plugin updates
   performance = {
     rtp = {
+      reset = false,
       -- disable some rtp plugins
       disabled_plugins = {
         "gzip",

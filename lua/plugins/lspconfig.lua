@@ -50,14 +50,48 @@ local servers = {
     end,
     settings = {
       tailwindCSS = {
+        includeLanguages = {
+          eelixir = "html-eex",
+          elixir = "html-eex",
+          eruby = "erb",
+          heex = "html-eex",
+          htmlangular = "html",
+          templ = "html",
+          pug = "html",
+        },
+        lint = {
+          cssConflict = "warning",
+          invalidApply = "error",
+          invalidConfigPath = "error",
+          invalidScreen = "error",
+          invalidTailwindDirective = "error",
+          invalidVariant = "error",
+          recommendedVariantOrder = "warning",
+        },
+        classAttributes = {
+          "class",
+          "ui",
+        },
         experimental = {
           classRegex = {
             { "cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]" },
             { "cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)" },
             { "cn\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]" },
+            { "ui:\\s*{([^)]*)\\s*}", "(?:'|\"|`)([^']*)(?:'|\"|`)" },
           },
         },
       },
+    },
+    filetypes = {
+      "html",
+      "css",
+      "scss",
+      "javascript",
+      "javascriptreact",
+      "typescript",
+      "typescriptreact",
+      "vue",
+      "pug", -- Added "pug" here
     },
   },
 
@@ -164,11 +198,13 @@ local servers = {
     --   rulesCustomizations = customizations,
     -- },
   },
+  pug = {},
 }
 
 return {
   "neovim/nvim-lspconfig",
   opts = {
     servers = servers,
+    inlay_hints = { enabled = false },
   },
 }

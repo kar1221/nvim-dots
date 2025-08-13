@@ -6,3 +6,7 @@ vim.o.cursorline = false
 vim.g.autoformat = false
 
 vim.g.lazyvim_blink_main = true
+vim.lsp.set_log_level("OFF")
+
+vim.g.snacks_animate = false
+vim.g.minianimate_disable = true
