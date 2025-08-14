@@ -2,8 +2,14 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = function() end,
+      colorscheme = "nordic",
     },
+  },
+
+  {
+    "AlexvZyl/nordic.nvim",
+    lazy = false,
+    priority = 1000,
   },
 
   {
