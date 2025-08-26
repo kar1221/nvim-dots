@@ -2,14 +2,20 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "nordic",
+      colorscheme = "catppuccin-latte",
     },
   },
 
   {
     "AlexvZyl/nordic.nvim",
-    lazy = false,
-    priority = 1000,
+  },
+
+  {
+    "nyoom-engineering/oxocarbon.nvim",
+  },
+
+  {
+    "shaunsingh/nord.nvim",
   },
 
   {

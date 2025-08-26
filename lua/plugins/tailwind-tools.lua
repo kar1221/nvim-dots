@@ -12,7 +12,7 @@ return {
       override = false
     },
     document_color = {
-      enabled = false,
+      enabled = true,
       kind = "background",
     },
     conceal = {
