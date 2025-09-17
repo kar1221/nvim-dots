@@ -1,11 +1,4 @@
 local servers = {
-  html = {
-    filetypes = {
-      "html",
-      "ejs",
-    },
-  },
-
   -- CSS
   cssls = {
     settings = {
@@ -65,41 +58,13 @@ local servers = {
     },
   },
 
-
-  eslint = {
-    filetypes = {
-      "javascript",
-      "javascriptreact",
-      "javascript.jsx",
-      "typescript",
-      "typescriptreact",
-      "typescript.tsx",
-      "vue",
-      "html",
-      "markdown",
-      "json",
-      "jsonc",
-      "yaml",
-      "toml",
-      "xml",
-      "gql",
-      "graphql",
-      "astro",
-      "svelte",
-      "css",
-      "less",
-      "scss",
-      "pcss",
-      "postcss",
-    },
-  },
-  pug = {},
+  emmet_language_server = {}
 }
 
 return {
   "neovim/nvim-lspconfig",
   opts = {
     servers = servers,
-    inlay_hints = { enabled = false },
+    inlay_hints = { enabled = true },
   },
 }

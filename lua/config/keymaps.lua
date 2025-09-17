@@ -8,9 +8,9 @@ local LazyVim = require("lazyvim.util")
 vim.keymap.set("n", "<leader>cf", function()
   if find_pkg(vim.fn.getcwd(), "@antfu/eslint-config") then
     vim.fn.system({ "eslint", "--fix" })
-    vim.notify("Formatting using eslint", vim.log.levels.INFO)
+    -- vim.notify("Formatting using eslint", vim.log.levels.INFO)
   else
-    vim.notify("Formatting using default formatter", vim.log.levels.INFO)
+    -- vim.notify("Formatting using default formatter", vim.log.levels.INFO)
     LazyVim.format({ force = true })
   end
 end, { desc = "Format" })

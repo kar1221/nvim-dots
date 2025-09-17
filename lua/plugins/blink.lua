@@ -6,9 +6,6 @@ return {
   ---@type blink.cmp.Config
   opts = {
     completion = {
-      ghost_text = {
-        enabled = false,
-      },
       menu = {
         draw = {
           components = {
@@ -51,20 +48,18 @@ return {
       },
     },
 
-    keymap = {
-      preset = "super-tab",
-      ["<Tab>"] = {
-        require("blink.cmp.keymap.presets").get("super-tab")["<Tab>"][1],
-        require("lazyvim.util.cmp").map({ "snippet_forward", "ai_accept" }),
-        "fallback",
-      },
-    },
+    -- keymap = {
+    --   preset = "super-tab",
+    --   ["<Tab>"] = {
+    --     require("blink.cmp.keymap.presets").get("super-tab")["<Tab>"][1],
+    --     require("lazyvim.util.cmp").map({ "snippet_forward", "ai_accept" }),
+    --     "fallback",
+    --   },
+    -- },
     sources = {
       providers = {
         lsp = {
           score_offset = 10,
-          timeout_ms = 5000,
-          fallbacks = {},
         },
         path = {
           score_offset = 9,
