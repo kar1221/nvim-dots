@@ -58,7 +58,11 @@ local servers = {
     },
   },
 
-  emmet_language_server = {}
+  emmet_language_server = {},
+  qmlls = {
+        cmd = { "qmlls6" },
+        filetypes = { "qml", "qmljs" },
+      },
 }
 
 return {
