@@ -1,3 +1,5 @@
+if true then return {} end
+
 return {
   "oribarilan/lensline.nvim",
   event = "LspAttach",

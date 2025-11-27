@@ -1,8 +1,10 @@
 return {
   "windwp/nvim-autopairs",
   event = "InsertEnter",
-  -- use opts = {} for passing setup options
-  -- this is equivalent to setup({}) function
+  opts = {
+    map_cr = true,
+    check_ts = true,
+  },
   config = function(_, opts)
     local npairs = require("nvim-autopairs")
     local Rule = require("nvim-autopairs.rule")
@@ -37,8 +39,6 @@ return {
           }, context)
         end),
     })
-
-    -- vim.notify("autopair config loaded", vim.log.levels.INFO)
     -- For each pair of brackets we will add another rule
     for _, bracket in pairs(brackets) do
       npairs.add_rules({
