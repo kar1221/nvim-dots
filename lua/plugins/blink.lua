@@ -8,33 +8,55 @@ return {
     },
     completion = {
       menu = {
+        scrollbar = false,
         draw = {
-          components = {
-            kind_icon = {
-              text = function(ctx)
-                local kind_icon, _, _ = require("mini.icons").get("lsp", ctx.kind)
-                return kind_icon
-              end,
-              highlight = function(ctx)
-                local _, hl, _ = require("mini.icons").get("lsp", ctx.kind)
-                return hl
-              end,
-            },
-            kind = {
-              highlight = function(ctx)
-                local _, hl, _ = require("mini.icons").get("lsp", ctx.kind)
-                return hl
-              end,
-            },
-          },
           padding = 2,
           columns = {
             { "label" },
             { "kind_icon" },
             { "kind" },
           },
+          components = {
+            kind_icon = {
+              text = function(ctx)
+                if vim.tbl_contains({ "Path" }, ctx.source_name) then
+                  local mini_icon, _ = require("mini.icons").get_icon(ctx.item.data.type, ctx.label)
+                  if mini_icon then
+                    return mini_icon .. ctx.icon_gap
+                  end
+                end
+
+                local icon = require("lspkind").symbolic(ctx.kind, { mode = "symbol" })
+                return icon .. ctx.icon_gap
+              end,
+
+              -- Optionally, use the highlight groups from mini.icons
+              -- You can also add the same function for `kind.highlight` if you want to
+              -- keep the highlight groups in sync with the icons.
+              highlight = function(ctx)
+                if vim.tbl_contains({ "Path" }, ctx.source_name) then
+                  local mini_icon, mini_hl = require("mini.icons").get_icon(ctx.item.data.type, ctx.label)
+                  if mini_icon then
+                    return mini_hl
+                  end
+                end
+                return ctx.kind_hl
+              end,
+            },
+            kind = {
+              -- Optional, use highlights from mini.icons
+              highlight = function(ctx)
+                if vim.tbl_contains({ "Path" }, ctx.source_name) then
+                  local mini_icon, mini_hl = require("mini.icons").get_icon(ctx.item.data.type, ctx.label)
+                  if mini_icon then
+                    return mini_hl
+                  end
+                end
+                return ctx.kind_hl
+              end,
+            },
+          },
         },
-        scrollbar = false,
       },
     },
 
@@ -46,10 +68,10 @@ return {
         path = {
           score_offset = 9,
         },
-        buffer = {
+        snippets = {
           score_offset = 8,
         },
-        snippets = {
+        buffer = {
           score_offset = 7,
         },
       },
