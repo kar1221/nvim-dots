@@ -1,6 +1,5 @@
 return {
   "saghen/blink.cmp",
-  build = "cargo +nightly-2025-09-30 build --release",
   ---@module 'blink.cmp'
   ---@type blink.cmp.Config
   opts = {
@@ -10,8 +9,10 @@ return {
     completion = {
       list = {
         selection = {
-          preselect = false,
-          auto_insert = false
+          preselect = function(ctx)
+            return not require("blink.cmp").snippet_active({ direction = 1 })
+          end,
+          auto_insert = false,
         },
       },
       menu = {
@@ -19,8 +20,8 @@ return {
         draw = {
           padding = 2,
           columns = {
-            { "label" },
             { "kind_icon" },
+            { "label" },
             { "kind" },
           },
           components = {
@@ -33,9 +34,11 @@ return {
                     icon = dev_icon
                   end
                 else
-                  icon = require("lspkind").symbolic(ctx.kind, {
-                    mode = "symbol",
-                  })
+                  -- icon = require("lspkind").symbolic(ctx.kind, {
+                  --   mode = "symbol",
+                  -- })
+
+                  icon = require("lspkind").symbolic(ctx.kind)
                 end
 
                 return icon .. ctx.icon_gap
@@ -65,10 +68,10 @@ return {
         lsp = {
           score_offset = 10,
         },
-        path = {
+        snippets = {
           score_offset = 9,
         },
-        snippets = {
+        path = {
           score_offset = 8,
         },
         buffer = {

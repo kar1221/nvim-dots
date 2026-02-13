@@ -1,3 +1,6 @@
+if true then
+  return {}
+end
 
 return {
   "folke/noice.nvim",
@@ -9,6 +12,16 @@ return {
         filter = {
           event = "notify",
           find = "No information available",
+        },
+        opts = {
+          skip = true,
+        },
+      },
+
+      {
+        filter = {
+          event = "notify",
+          find = "No signature help available",
         },
         opts = {
           skip = true,
