@@ -77,6 +77,12 @@ return {
         buffer = {
           score_offset = 7,
         },
+        ["easy-dotnet"] = {
+          enabled = true,
+          module = "easy-dotnet.completion.blink",
+          score_offset = 10,
+          async = true,
+        }
       },
     },
     fuzzy = {
