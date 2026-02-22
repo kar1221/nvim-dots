@@ -10,5 +10,5 @@ vim.lsp.set_log_level("OFF")
 
 vim.g.snacks_animate = false
 vim.g.minianimate_disable = true
-vim.o.scrolloff = 15
+vim.o.scrolloff = 8
 vim.o.sidescrolloff = 30

@@ -31,6 +31,7 @@
   "mini.hipatterns": { "branch": "main", "commit": "add8d8abad602787377ec5d81f6b248605828e0f" },
   "mini.icons": { "branch": "main", "commit": "68c178e0958d95b3977a771f3445429b1bded985" },
   "mini.pairs": { "branch": "main", "commit": "4089aa6ea6423e02e1a8326a7a7a00159f6f5e04" },
+  "neo-tree.nvim": { "branch": "main", "commit": "9a1f0461c4cc62e64616bafe9425572ff6a5f245" },
   "neogen": { "branch": "main", "commit": "23e7e9f883d01289ebd90e98025acc860ea26366" },
   "neotest": { "branch": "master", "commit": "deadfb1af5ce458742671ad3a013acb9a6b41178" },
   "neotest-golang": { "branch": "main", "commit": "03b7198680cdfc7a8706ad99623993db8e57a687" },

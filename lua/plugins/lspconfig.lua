@@ -69,9 +69,11 @@ local servers = {
 }
 
 return {
-  "neovim/nvim-lspconfig",
-  opts = {
-    servers = servers,
-    inlay_hints = { enabled = true },
+  {
+    "neovim/nvim-lspconfig",
+    opts = {
+      servers = servers,
+      inlay_hints = { enabled = true },
+    },
   },
 }
