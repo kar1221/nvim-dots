@@ -1,3 +1,5 @@
+local start_time = vim.uv.hrtime()
+
 local get_buf_name = function()
   return vim.fn.expand("%:t")
 end
@@ -7,7 +9,14 @@ local get_buf_ft = function()
 end
 
 local get_time = function()
-  return vim.fn.strftime("%H:%M:%S")
+  local elapsed_time = vim.uv.hrtime() - start_time
+  local total = math.floor(elapsed_time / 1e9)
+
+  local h = math.floor(total / 3600)
+  local m = math.floor((total % 3600) / 60)
+  local s = total % 60
+
+  return string.format("%02d:%02d:%02d", h, m, s)
 end
 
 return {
@@ -22,7 +31,7 @@ return {
       lualine_a = { { "mode", separator = { left = "", right = "" }, right_padding = 2 } },
       lualine_b = {
         { get_buf_name },
-        { "branch", separator = { right = "" }},
+        { "branch", separator = { right = "" } },
       },
       lualine_c = {
         { "diagnostics" },
